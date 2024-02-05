@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => null,
+    'default' => env('PROTECT_SCHEME', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -43,7 +43,7 @@ return [
 
         'password' => [
             'driver' => 'password',
-            'allowed' => ['secret'],
+            'allowed' => ['secret', 'confidential'],
             'form_url' => null,
         ],
 

@@ -1,0 +1,24 @@
+<div class="hero-photo"
+     style="background-image: url(/img/projects_cover.jpg)">
+     <div class="opacity-70 absolute w-full h-52 md:h-128" style="background-image: url(/img/vzorec-test.png); background-position:right; background-repeat:no-repeat">
+     </div>
+
+    </div>
+<div id="content">
+  <div class="font-light text-left text-base leading-relaxed  w-full md:w-2/3">
+    <h1>{{ page:title }}</h1>
+    {{ trans:trans.projekti_tekst }}
+  </div>
+</div>
+<div id="projects">
+  <div class="gallery">
+    {{ collection:projects }}
+    <a href="{{ url }}" class="col-span-1 relative group">
+        {{ responsive:main_photo ratio="1/1" class="group-hover:opacity-30 opacity-30 md:opacity-100 transition-all duration-300 relative" }}
+        <div class="opacity-100 md:opacity-0 group-hover:opacity-100 transition-all px-8 text-center duration-300 absolute inset-0 flex items-center justify-center uppercase font-light font-Noto text-base">
+            {{ title }}
+        </div>
+    </a>
+    {{ /collection:projects }}
+  </div>
+</div>

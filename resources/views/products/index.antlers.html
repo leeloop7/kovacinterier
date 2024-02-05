@@ -1,0 +1,39 @@
+<div class="hero-photo" style="background-image: url(/img/luna.jpg)">
+     <div class="opacity-70 absolute w-full h-80 md:h-128" style="background-image: url(/img/vzorec-test.png); background-position:right; background-repeat:no-repeat">
+     </div>
+</div>
+<div id="content" x-data="{ expanded: false }">
+    <div class="font-light text-left text-base leading-relaxed w-full md:w-2/3">
+        {{ locales id="d52e146d-c2a3-4a2a-9a79-6733aa28e69f" current_first="true" }}
+            {{ if first }}
+                <h2 class="">{{title}}</h2>
+                {{content}}
+            {{ /if }}
+        {{ /locales }}
+        <a @click="expanded = !expanded; expanded && setTimeout(() => window.scrollTo({ top: $refs.wrapper.offsetTop - 170, behavior: 'smooth' }), 500)"
+                class="more">{{trans:trans.mehr}} <i class="ml-2 fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div x-ref="wrapper" x-show="expanded" x-collapse.duration.1000ms x-cloak>
+        <img src="/img/STORITVE_infografika_{{site:short_locale}}.png" class="hidden md:flex" alt="">
+        <img src="/img/STORITVE_infografika_MOB_{{site:short_locale}}.png" class="flex md:hidden" alt="">
+    </div>
+</div>
+
+<div id="content" x-data="{ expanded: null }">
+    {{ locales id="8b5c6b63-67b0-4c58-91a2-fe2cb445d3c3" current_first="true" }}
+        {{ if first }}
+            <div class="font-light text-left text-base leading-relaxed  w-full md:w-2/3">
+                <h2 class="">{{title}}</h2>
+                {{content}}
+            </div>
+            <div class="gallery">
+                {{ assets:gallery }}
+                    <a href="{{ url }}"
+                        class="glightbox group">
+                        {{ responsive:url webp="true" avif="false" ratio="16/9" class="group-hover:opacity-30 transition-all duration-300 relative"}}
+                    </a>
+                {{ /assets:gallery }}
+            </div>
+        {{ /if }}
+    {{ /locales }}
+</div>

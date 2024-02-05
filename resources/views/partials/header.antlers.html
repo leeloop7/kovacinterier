@@ -1,0 +1,88 @@
+<div class="bg-neutral-900 sticky top-0 z-50  h-24 justify-between flex items-center">
+  <div class="hamburger-menu w-72">
+    <input id="menu__toggle"
+           type="checkbox" />
+    <label class="menu__btn"
+           for="menu__toggle">
+      <span></span>
+      <div class="pl-10 -mt-2 text-sm">MENU</div>
+    </label>
+
+    <ul class="menu__box bg-neutral-800">
+      {{ collection:pages offset="0" limit="6" }}
+      <a href="{{url}}">
+        <li class="py-2 pl-4 hover:text-banana-500">{{title}}</li>
+      </a>
+      {{/collection:pages }}
+      {{# <div class="pl-4">
+                <a class="text-xs hover:text-banana-500"
+                href="tel:+386 40 850 805">
+                <li style="padding: 18px 0 4px 0;"><i class="fa-solid text-banana-500 fa-phone te"></i> +386 40 850 805 (Miran)</li>
+                </a>
+                <a class="text-xs hover:text-banana-500"
+                href="tel:+386 40 650 805">
+                <li style="padding: 4px 0;"><i class="fa-solid text-banana-500 fa-phone"></i> +386 40 650 805 (Brane)</li>
+                </a>
+                <a class="text-xs hover:text-banana-500"
+                href="mailto: info@mizarstvokovac.com"
+                target="blank">
+                <li style="padding: 4px 0;"><i class="fa-solid text-banana-500 fa-envelope"></i> info@mizarstvokovac.com</li>
+                </a>
+            </div> #}}
+        <div class="h-14 md:hidden flex justify-left items-center px-4 space-x-4 sm:h-auto text-sm transition-all duration-300">
+          <div class="mr-8 space-x-2">
+            {{ locales current_first="false" }}
+                {{ if total_results > 1 }}
+                    <a href="{{ url }}" class="hover:text-banana-500 uppercase {{ if is_current }} font-bold text-banana-500 {{ /if }}">
+                        {{ locale:short_locale }}
+                    </a>
+                {{ /if }}
+            {{ /locales }}
+          </div>
+        </div>
+        <div class="h-14 md:hidden flex justify-left items-center px-4 space-x-4 sm:h-auto text-xs transition-all duration-300">
+          <div class=" space-x-2">
+            <a href="https://www.instagram.com/kovac_interier/"
+               target="blank"
+               class="hover:text-banana-500 hover:scale-110"><i class="fa-brands fa-2x fa-instagram"></i></a>
+            <a href="https://www.facebook.com/kovacinterier"
+               target="blank"
+               class="hover:text-banana-500 hover:scale-110"><i class="fa-brands fa-2x fa-facebook-square"></i></a>
+            <a href="https://www.linkedin.com/company/kova%C4%8D-interier/" target="blank"
+               class="hover:text-banana-500 hover:scale-110"><i class="fa-brands fa-2x fa-linkedin"></i></a>
+          </div>
+        </div>
+    </ul>
+  </div>
+  <div class="text-center w-72">
+    <a href="{{ site:url }}"> <img src="/img/logo.svg"
+           class="mx-auto w-60 hidden md:block"
+           alt=""></a>
+    <a href="{{ site:url }}"> <img src="/img/logic.svg"
+           class="mx-auto h-12 mr-2 md:hidden"
+           alt=""></a>
+  </div>
+  <div class="hidden md:flex w-72">
+    <div class="h-16 flex justify-center md:items-center px-4 space-x-4 sm:h-auto text-sm transition-all duration-300">
+      <div class="mr-8 space-x-2 py-2">
+           {{ locales current_first="false" }}
+                {{ if total_results > 1 }}
+                    <a href="{{ url }}" class="hover:text-banana-500 uppercase {{ if is_current }} font-bold text-banana-500 {{ /if }}">
+                        {{ locale:short_locale }}
+                    </a>
+                {{ /if }}
+            {{ /locales }}
+      </div>
+      <div class="space-x-2">
+        <a href="https://www.instagram.com/kovac_interier/"
+           target="blank"
+           class="hover:text-banana-500 hover:scale-110"><i class="fa-brands fa-2x fa-instagram"></i></a>
+        <a href="https://www.facebook.com/kovacinterier"
+           target="blank"
+           class="hover:text-banana-500 hover:scale-110"><i class="fa-brands fa-2x fa-facebook-square"></i></a>
+        <a href="https://www.linkedin.com/company/kova%C4%8D-interier/" target="blank"
+           class="hover:text-banana-500 hover:scale-110"><i class="fa-brands fa-2x fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

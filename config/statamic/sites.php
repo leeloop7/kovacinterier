@@ -17,8 +17,20 @@ return [
 
         'default' => [
             'name' => config('app.name'),
-            'locale' => 'en_US',
+            'locale' => 'sl_SI',
             'url' => '/',
+        ],
+
+        'deutsch' => [
+            'name' => 'deutsch',
+            'locale' => 'de_DE',
+            'url' => '/de/',
+        ],
+
+        'english' => [
+            'name' => 'english',
+            'locale' => 'en_US',
+            'url' => '/en/',
         ],
 
     ],

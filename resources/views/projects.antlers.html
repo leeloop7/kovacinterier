@@ -1,0 +1,50 @@
+{{ collection:projects }}
+<div class="pt-24">
+  <div class="max-w-7xl mx-auto px-8 pb-12">
+    <div class="py-12 font-light text-left text-lg leading-relaxed  w-full md:w-2/3">
+      <h2 class="text-4xl font-light font-Noto tracking-wider uppercase my-8">{{ title }}</h2>
+      {{ intro }} <br>
+      {{ content }}
+    </div>
+
+    <div class="swiper mySwiper h-auto font-heading">
+      <div class="swiper-wrapper">
+        {{ assets:gallery }}
+        <div class="swiper-slide w-full mx-auto overflow-hidden">
+          {{ responsive:url ratio="16/9" class="h-[24rem] md:h-[42rem] text-white" }}
+
+        </div>
+        {{ /assets:gallery }}
+      </div>
+      <div class="navigation bg-gray-900 bg-opacity-30 z-50 absolute bottom-6 w-64 h-6 items-center mx-auto ml-8">
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ /collection:projects }}
+
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    cssMode: true,
+    slidesPerView: 1,
+    grabCursor: true,
+    spaceBetween: 0,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>

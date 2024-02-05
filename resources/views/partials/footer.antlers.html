@@ -1,0 +1,58 @@
+{{# <footer class="px-4 py-12 md:px-8">
+
+
+  <div class="flex flex-wrap items-center justify-center py-6 mx-auto text-lg uppercase max-w-7xl text-stone-200">
+    {{ collection:pages }}
+    <a class="mx-2 transition-colors duration-300 hover:text-banana-500"
+       href="{{url}}">{{title}}</a>
+    {{ /collection:pages }}
+  </div>
+</footer> #}}
+{{# <a href="https://www.kovacinterier.com/javni-razpis" target="blank" class="fixed bottom-2 right-2">
+    <img src="/img/eu_logo.jpeg" class="w-40" alt="">
+</a> #}}
+<div class="grid items-end justify-between grid-cols-3 gap-4 px-4 py-6 mx-auto pb-28 md:pb-6 max-w-7xl text-neutral-600">
+
+    <div class="text-xs font-semibold uppercase font-Open">@copyrights Kovač Interier 2022</div>
+    <div>
+        <img class="w-20 mx-auto"
+        src="/img/logic.svg"
+            alt="">
+        <div class="text-sm text-center text-neutral-300">Part of Kovač Group d.o.o.</div>
+    </div>
+    <div class="text-xs font-semibold text-right uppercase font-Open">
+        <a href="http://www.enigma.si"
+        target="blank"
+        class="">Made by: Enigma Creative solutions</a>
+    </div>
+</div>
+<a href="http://www.kovacinterier.com/javni-razpis" class="fixed z-50 p-2 bg-white bottom-2 left-2">
+    <img src="/img/eu_logo.png" class="w-32 md:w-40" alt="">
+</a>
+<a href="http://www.kovacinterier.com/javni-razpis-ng" class="fixed z-50 p-2 bg-white bottom-2" style="margin-left:200px;">
+    <img src="/img/feu_logo.png" class="w-32 md:w-40" alt="">
+</a>
+{{# <div class="fixed bottom-0 w-full py-1 bg-white z-60 ">
+    <div class="grid items-center max-w-xl grid-cols-3 px-4 py-1 mx-auto">
+        <div class="px-2 py-2 bg-white"><img src="/img/znak.jpg" style="height:60px;" class="mx-auto" alt=""></div>
+        <div class="px-2 py-2 bg-white"><img src="/img/bonitet.png" style="height:60px;" class="mx-auto" alt=""></div>
+        <div class="px-2 py-2 bg-white">
+            <a href="https://www.kovacinterier.com/javni-razpis" target="blank">
+                <img src="/img/eu_logo.jpeg" style="height:60px;" class="mx-auto" alt="">
+            </a>
+        </div>
+
+
+    </div>
+</div> #}}
+<button x-cloak x-data="{scroll : false}" @scroll.window="document.documentElement.scrollTop > 200 ? scroll = true : scroll = false" x-show="scroll" @click="window.scrollTo({top: 0, behavior: 'smooth'})" type="button" data-mdb-ripple="true" data-mdb-ripple-color="light" class="fixed inline-block p-3 text-xs font-medium leading-tight text-white uppercase transition duration-150 ease-in-out shadow-md bg-neutral-800 hover:bg-neutral-700 hover:shadow-lg focus:bg-neutral-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-neutral-800 active:shadow-lg bottom-5 right-5" id="btn-back-to-top" x-transition.opacity>
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+    </svg>
+</button>
+{{# <button
+  x-data
+  @click.window="window.scrollTo({top: 0, behavior: 'smooth'})"
+  class="fixed z-50 p-2 bottom-4 left-4 bg-neutral-800">
+  <i class="fa-solid fa-2x fa-up"></i>
+</button> #}}

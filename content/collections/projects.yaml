@@ -1,0 +1,20 @@
+title: Projects
+sites:
+  - default
+  - english
+  - deutsch
+propagate: false
+template: projects/show
+layout: layout
+revisions: false
+route:
+  default: 'projekti/{slug}'
+  english: 'projects/{slug}'
+  deutsch: 'projekte/{slug}'
+sort_dir: asc
+date_behavior:
+  past: public
+  future: private
+structure:
+  root: false
+  max_depth: 1

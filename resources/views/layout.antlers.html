@@ -1,16 +1,110 @@
 <!doctype html>
 <html lang="{{ site:short_locale }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ title ?? site:name }}</title>
-        <link rel="stylesheet" href="{{ mix src='css/tailwind.css' }}">
-    </head>
-    <body class="bg-gray-100 font-sans leading-normal text-gray-800">
-        <div class="mx-auto px-2 lg:min-h-screen flex flex-col items-center justify-center">
-            {{ template_content }}
-        </div>
-        <script src="{{ mix src='/js/site.js' }}"></script>
-    </body>
+
+<head>
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <meta property="og:image"
+        content="https://www.kovacinterier.com/assets/untitled_panorama2-1663849893.jpg">
+  <title>{{ site }}{{ name }}{{ /site }} - {{ title }}</title>
+  <link rel="stylesheet"
+        href="{{ mix src='css/tailwind.css' }}">
+        <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+      />
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+  <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+
+
+</head>
+
+<body class="bg-neutral-900 font-Open leading-normal text-gray-100"
+      x-data>
+  {{ partial:header }}
+  <div class="mt-0">
+    {{ template_content }}
+  </div>
+  {{ partial:footer }}
+
+  <script src="https://kit.fontawesome.com/ce34192311.js"
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+          integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"></script>
+
+  <script defer
+          src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+
+  <script defer
+          src="https://unpkg.com/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+  <script defer
+          src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
+  <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+
+  <script src="{{ mix src='js/site.js' }}"></script>
+  <script>
+    $(window).scroll(function() {
+      var scroll = $(window).scrollTop();
+
+      if (scroll >= 100) {
+        $(".clearHeader").addClass("displayNav");
+      } else {
+        $(".clearHeader").removeClass("displayNav");
+      }
+    });
+  </script>
+  <script type="text/javascript">
+    function initMap() {
+      const slovenia = {
+        lat: 45.816870,
+        lng: 15.150730
+      };
+      const germany = {
+        lat: 48.271460,
+        lng: 9.730580
+      };
+
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 6,
+        center: slovenia,
+        disableDefaultUI: true,
+        backgroundColor: "#262626"
+      });
+
+      new google.maps.Marker({
+        position: slovenia,
+        map,
+        label: "1",
+        title: "Kovač Group d.o.o., Vavpotičeva ulica 10, 8000 Novo mesto"
+      });
+
+      new google.maps.Marker({
+        position: germany,
+        map,
+        label: "2",
+        title: "Kovac Interiors GmbH, Talstrasse 14, 89584 Ehingen (Donau)"
+      });
+    }
+
+    window.initMap = initMap;
+  </script>
+
+  <script type="text/javascript"
+          src="https://maps.google.com/maps/api/js?key=AIzaSyANFe5XpbuYLsvRdlMoK02A2C6_n6Jqfhs&callback=initMap"></script>
+
+</body>
+
 </html>

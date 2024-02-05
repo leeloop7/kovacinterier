@@ -1,0 +1,44 @@
+<div id="content">
+    <div class="font-light text-left text-base leading-relaxed w-full md:w-2/3">
+        <h2 class="mb-0">{{ title }}</h2>
+        {{location}}
+        <br>
+        {{ content }}
+    </div>
+</div>
+<div class="max-w-7xl mx-auto px-8">
+    <div class="text-right pb-4">
+        <a class="text-sm text-banana-500"
+            href="{{ link id="70cb297d-ccb6-4255-ae75-0998f33d2bb5" }}">
+            <i class="fa-solid fa-rotate-left"></i> {{trans:trans.nazaj}}
+        </a>
+    </div>
+    <div class="grid grid-cols-{{intro | strip_tags:p}} ">
+        {{# {{ if title == "Hotel Jakov, Šibenik" }}
+            {{ assets:gallery }}
+                <a class="col-span-3 glightbox group" href="{{ url }}">
+                    {{ responsive:url webp="true" avif="false" ratio="3/1" class="group-hover:opacity-30 transition-all duration-300 relative"}}
+                </a>
+            {{ /assets:gallery }}
+        {{ else }} #}}
+            {{ assets:gallery }}
+                <a href="{{ url }}"
+                    class="glightbox group">
+                    {{ responsive:url webp="true" avif="false" ratio="1/1" class="group-hover:opacity-30 transition-all duration-300 relative"}}
+                </a>
+            {{ /assets:gallery }}
+        {{# {{ /if }} #}}
+    </div>
+
+
+    {{# <h2 class="text-2xl font-light font-Noto tracking-wider uppercase mt-16 mb-8">{{trans:trans.ostali}}</h2>
+    <div class="grid grid-cols-3">
+      {{ collection:projects limit="3" url:not="{ url }" }}
+      <a href="{{url}}">
+        {{ responsive:main_photo ratio="16/9" class="grayscale hover:grayscale-0 transition-all duration-500" }}
+        {{ title }}
+      </a>
+      {{ /collection:projects }}
+    </div> #}}
+  </div>
+</div>

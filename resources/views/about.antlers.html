@@ -1,0 +1,153 @@
+<div class="hero-photo" style="background-image: url(/img/tech.jpeg)" alt="{{trans:trans.about_alt}}">
+     <div class="opacity-70 absolute w-full h-80 md:h-128" style="background-image: url(/img/vzorec-test.png); background-position:right; background-repeat:no-repeat">
+     </div>
+</div>
+
+<div id="content">
+  <div class="font-light text-left text-base leading-relaxed  w-full md:w-2/3">
+    <h1 class="">{{ page:title }}</h1>
+    {{ locales id="f86d7183-bee8-4669-bb42-e216defcae41" current_first="true" }}
+        {{ if first }}
+        {{ content }}
+        {{ content_2 }}
+        {{ /if }}
+    {{ /locales }}
+  </div>
+</div>
+<div id="timeline">
+  {{collection:zgodovinski_mejniki}}
+  <div class="grid grid-cols-1 md:grid-cols-5 items-center">
+    <div class="col-span-1 px0 md:px-4 md:border-r-2 border-banana-500 py-6">
+      <h4 class="text-3xl md:text-5xl font-black text-neutral-700 text-opacity-50">
+          {{year | strip_tags:p}}<span class="text-banana-500">{{title | strip_tags:p}}</span>
+        </h4>
+    </div>
+    <div class="col-span-3 font-light pl-0 md:pl-8 text-base">
+      {{ content | strip_tags:p }}
+    </div>
+  </div>
+  {{/collection:zgodovinski_mejniki}}
+</div>
+<div id="content" x-data="{selected:0}">
+    <ul class="shadow-box">
+        <li class="relative list-none">
+            <button type="button" class="w-full text-left" @click="selected !== 1 ? selected = 1 : selected = null">
+            <div class="grid grid-cols-1 md:grid-cols-5 items-center ">
+                <div class="col-span-1"></div>
+                    <div class="col-span-3 pl-0 md:pl-8"><span>{{trans:trans.beginings}} <i class="fa-solid fa-arrow-right"></i></span></div>
+                </div>
+            </button>
+            {{ locales id="cd390900-2cb2-4db7-9b89-156a6954abf8" current_first="true" }}
+            {{ if first }}
+            <div class="relative overflow-hidden transition-all max-h-0 duration-700 py-8" style="" x-ref="container1" x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+                <div class="grid grid-cols-12 items-start">
+                    <div class="hidden md:flex col-span-1"><img src="/img/NAREKOVAJI-08.svg" alt=""></div>
+                    <div class="col-span-12 md:col-span-10 text-left md:text-justify">
+                        <h4 class="text-4xl font-light font-Dancing tracking-wider my-8 text-left">{{title}}</h4>
+                        {{content}}
+                    </div>
+                    <div class="hidden md:flex col-span-1"><img src="/img/NAREKOVAJI-08.svg" alt=""></div>
+
+                </div>
+            </div>
+            {{ /if }}
+            {{ /locales }}
+        </li>
+    </ul>
+</div>
+
+
+<div class="bg-center bg-cover" style="background: url(/img/moja_ekipa.jpg); background-position: center; background-size:cover">
+    <div class="bg-opacity-70 bg-neutral-900  w-full md:h-92 py-8">
+        <div id="content">
+            <div class="font-light text-left text-base leading-relaxed w-full md:w-2/3">
+                {{ locales id="c32217ad-9f57-4f44-bc19-fcfc2375dc91" current_first="true" }}
+                {{ if first }}
+                <h2>{{title}}</h2>
+                {{content}}
+                {{content_2}}
+                {{ /if }}
+                {{ /locales }}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="flek">
+    <h1 class="text-2xl md:text-3xl font-light font-Noto tracking-wider uppercase my-8">{{trans:trans.values}}</h1>
+    <dl class="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-8 pb-12 font-light">
+      <div>
+        <dt">
+          <img class="w-4/5" src="/img/VALUES_odlicnost_{{site:short_locale}}.svg" alt="{{trans:trans.value_1_alt}}">
+          {{# <p class="mt-5 text-base leading-6 font-medium text-white">{{trans:trans.value_1}}</p> #}}
+        </dt>
+        {{ locales id="e6dee2d7-c13e-4237-9db5-f0aced6149f2" current_first="true" }}
+        {{ if first }}
+            <dd class="mt-0 text-base text-white">{{content}}</dd>
+            <div class="grid grid-cols-3 gap-2 pt-6 items-center">
+                {{ assets:gallery }}
+                    <a class="{{first}}{{if first}}col-span-1{{else}}col-span-2{{/if}} glightbox group" href="{{ url }}">
+                        {{ responsive:url webp="true" avif="false" class="group-hover:opacity-30 transition-all duration-300 relative"}}
+                    </a>
+                {{ /assets:gallery }}
+            </div>
+            {{ /if }}
+        {{ /locales }}
+      </div>
+
+      <div>
+        <dt">
+            <img class="w-4/5" src="/img/VALUES_znanje_{{site:short_locale}}.svg" alt="{{trans:trans.value_2_alt}}">
+          {{# <p class="mt-5 text-base leading-6 font-medium text-white">{{trans:trans.value_2}}</p> #}}
+        </dt>
+        {{ locales id="e6dee2d7-c13e-4237-9db5-f0aced6149f2" current_first="true" }}
+        {{ if first }}
+            <dd class="mt-0 text-base text-white">{{content_2}}</dd>
+            {{ /if }}
+        {{ /locales }}
+      </div>
+
+      <div>
+        <dt">
+            <img class="w-4/5" src="/img/VALUES_tehnologija_{{site:short_locale}}.svg" alt="{{trans:trans.value_3_alt}}">
+          {{# <p class="mt-5 text-base leading-6 font-medium text-white">{{trans:trans.value_3}}</p> #}}
+        </dt>
+        {{ locales id="e6dee2d7-c13e-4237-9db5-f0aced6149f2" current_first="true" }}
+        {{ if first }}
+            <dd class="mt-0 text-base text-white">{{content_3}}</dd>
+            {{ /if }}
+        {{ /locales }}
+      </div>
+    </dl>
+  </div>
+
+  <div class="bg-center bg-cover" style="background: url(/img/vision.jpg); background-position: center; background-size:cover">
+    <div class="bg-opacity-70 bg-neutral-900  w-full md:h-92 py-8">
+    <div id="content">
+        <div class="font-light text-left text-base leading-relaxed w-full md:w-2/3">
+        <h2 class="text-2xl md:text-3xl font-light font-Noto tracking-wider uppercase mb-8">{{trans:trans.vision}}</h2>
+        {{ locales id="390784c9-51ae-403c-a0c4-4a3de0fd85ed" current_first="true" }}
+        {{ if first }}
+          {{content_2}}
+        {{ /if }}
+        {{ /locales }}
+      </div>
+    </div>
+</div>
+  </div>
+
+  <div class="bg-neutral-800">
+    <div id="flek">
+      <div class="col-span-2 py-12 font-light text-left text-base leading-relaxed ">
+        {{ locales id="1bca96de-67b5-4547-9c18-96d2b074f383" current_first="true" }}
+        {{ if first }}
+        <h2 class="text-2xl md:text-3xl font-light font-Noto tracking-wider uppercase mb-8">{{title}}</h2>
+        {{content}}
+        {{ /if }}
+        {{ /locales }}
+      </div>
+    </div>
+  </div>

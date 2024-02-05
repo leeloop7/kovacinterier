@@ -1,0 +1,221 @@
+<div class="bg-cover bg-center h-128"
+     style="background-image: url(/img/tech.jpeg)"></div>
+
+<div class="max-w-7xl mx-auto px-8 items-center my-12">
+  <div class="py-12 font-light text-left text-xl leading-relaxed  w-full md:w-2/3">
+    <h1 class="text-4xl font-light font-Noto tracking-wider uppercase my-8">{{ page:title }}</h1>
+    Smo družinsko podjetje z več kot 80-letno tradicijo.
+    <p class="text-base py-12">
+      Vse od leta 1937 širimo krog naših strank, ki so danes po celotni Sloveniji, v Nemčiji, Avstriji in na Hrvaškem. Od izdelovalcev
+      osnovnih mizarskih izdelkov smo se razvili v proizvajalce visoko zahtevnega pohištva za različne objekte.
+    </p>
+  </div>
+</div>
+<div class="max-w-7xl mx-auto px-8">
+  <p class="leading-8">
+    <h2 class="text-4xl font-light font-Noto tracking-wider text-banana-500 uppercase my-8">Zgodovinski mejniki</h2>
+  </p>
+  {{collection:zgodovinski_mejniki}}
+  <div class="grid grid-cols-1 md:grid-cols-5 items-center ">
+    <div class="col-span-1 px0 md:px-4 md:border-r-2 border-banana-500 py-8">
+      <h3 class="text-5xl font-black text-neutral-700 text-opacity-50">{{year | strip_tags:p}}<span
+              class="text-banana-500">{{title | strip_tags:p}}</span></h3>
+    </div>
+    <div class="col-span-3 text-neutral-300 pl-0 md:pl-8">
+      {{ content }}
+    </div>
+  </div>
+  {{/collection:zgodovinski_mejniki}}
+
+</div>
+</div>
+
+
+
+<div class="max-w-7xl mx-auto px-8 my-12 py-12 flex flex-col space-y-8"
+     x-data="{ showModal: false }"
+     @keydown.escape="showModal = false">
+  <button @click="showModal = true"
+          class="block float-left text-banana-500 text-xl font-Open max-w-max font-thin hover:text-white transition-colors duration-300 border border-yellow-500 py-2 px-4">
+    Začetki naše delavnice <i class="fa-solid fa-arrow-right"></i>
+  </button>
+  {{# <div class="col-span-1">
+    <img src="/img/team.jpeg"
+         alt="">
+  </div> #}}
+    <div class="font-light text-left text-lg leading-relaxed">
+      <h1 class="text-5xl font-light font-Noto tracking-wider uppercase my-8">Naša ekipa</h1>
+      V podjetju postopoma krepimo ekipo sodelavcev. Intenzivno se posvečamo usposabljanju zaposlenih s ciljem, da lahko vsak opravlja
+      različne delovne operacije. S fleksibilnostjo celotne ekipe omogočamo prilagajanje zahtevam različnih projektov.
+      <p class="text-lg py-4">
+        V ospredje postavljamo dobro počutje delavcev na delovnem mestu. Z uvajanjem različnih inovacij skrbimo, da delavci opravljajo svoje
+        delo brez nepotrebnega napora. S sodobnim odsesovalnim sistemom je poskrbljeno za čisto delovno okolje.
+      </p>
+    </div>
+
+    <!-- Our start popup -->
+    <div class="relative z-10"
+         aria-labelledby="modal-title"
+         role="dialog"
+         aria-modal="true"
+         x-show="showModal">
+      <div x-show="showModal"
+           x-transition:enter="ease-out duration-300"
+           x-transition:enter-start="opacity-0"
+           x-transition:enter-end="opacity-100"
+           x-transition:leave="ease-in duration-200"
+           x-transition:leave-start="opacity-100"
+           x-transition:leave-end="opacity-0"
+           class="fixed inset-0 bg-gray-500 bg-neutral-900 bg-opacity-75 transition-opacity"></div>
+
+      <div class="fixed top-14 sm:top-0 inset-0 z-10 overflow-y-auto">
+        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+          <div x-show="showModal"
+               x-transition:enter="ease-out duration-300"
+               x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+               x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+               x-transition:leave="ease-in duration-200"
+               x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+               x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+               class=" bg-neutral-800 relative transform overflow-hidden rounded-lg bg-white p-6 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl sm:p-10"
+               @click.away="showModal = false">
+            <div>
+              {{ collection:content limit=1  }}
+              <div class="flex justify-between items-center">
+                <h3 class="text-2xl font-medium leading-6 text-gray-300">{{ title }}</h3>
+                <svg @click="showModal = false"
+                     xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke-width="1.5"
+                     stroke="currentColor"
+                     class="w-6 h-6 sm:hidden text-gray-900">
+                  <path stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18L18 6M6 6l12 12" />
+                </svg>
+
+              </div>
+              <div class="mt-5 prose prose-sm max-w-none text-gray-200">
+                {{ content }}
+              </div>
+              {{ /collection:content }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Our start popup -->
+</div>
+
+
+<div class="py-12 bg-neutral-800">
+  <div class="max-w-xl mx-auto lg:max-w-7xl px-8">
+    <h1 class="text-5xl font-light font-Noto tracking-wider uppercase my-8">Naše vrednote</h1>
+    <dl class="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-8 py-12">
+      <div>
+        <dt>
+          <h3 class="text-5xl font-black text-banana-500">1</h3>
+          <p class="mt-5 text-lg leading-6 font-medium text-white">Biti odlični</p>
+        </dt>
+        <dd class="mt-2 text-base text-gray-400">Strmimo k temu, da z našim delom zadovoljimo vsako našo stranko. Uresničitev njenih
+          pričakovanj nam pomeni največ. </dd>
+      </div>
+
+      <div>
+        <dt>
+          <h3 class="text-5xl font-black text-banana-500">2</h3>
+          <p class="mt-5 text-lg leading-6 font-medium text-white">Znanje</p>
+        </dt>
+        <dd class="mt-2 text-base text-gray-400">Z najzahtevnejšimi projekti se učimo in pridobivamo nova znanja, ki so ključnega pomena za
+          kvaliteto našega dela.</dd>
+      </div>
+
+      <div>
+        <dt>
+          <h3 class="text-5xl font-black text-banana-500">3</h3>
+          <p class="mt-5 text-lg leading-6 font-medium text-white">Sodobna tehnologija</p>
+        </dt>
+        <dd class="mt-2 text-base text-gray-400">Sledimo napredku strojne tehnologije, ki delavcem olajšuje delo in dviguje kvaliteto
+          končnih produktov.</dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
+
+{{# <div class="py-12 bg-neutral-900">
+  <div class="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <dl class="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-8">
+      <div>
+        <dt>
+          <lord-icon src="https://cdn.lordicon.com/nxaaasqe.json"
+                     trigger="loop"
+                     colors="primary:#ffffff,secondary:#eeca66"
+                     style="width:80px;height:80px">
+          </lord-icon>
+          <p class="mt-5 text-lg leading-6 font-medium text-white">Competitive exchange rates</p>
+        </dt>
+        <dd class="mt-2 text-base text-gray-400">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis
+          suscipit eaque, iste dolor cupiditate blanditiis ratione.</dd>
+      </div>
+
+      <div>
+        <dt>
+          <lord-icon src="https://cdn.lordicon.com/gqzfzudq.json"
+                     trigger="loop"
+                     colors="primary:#ffffff,secondary:#eeca66"
+                     style="width:80px;height:80px">
+          </lord-icon>
+          <p class="mt-5 text-lg leading-6 font-medium text-white">No hidden fees</p>
+        </dt>
+        <dd class="mt-2 text-base text-gray-400">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis
+          suscipit eaque, iste dolor cupiditate blanditiis ratione.</dd>
+      </div>
+
+      <div>
+        <dt>
+          <lord-icon src="https://cdn.lordicon.com/zzcjjxew.json"
+                     trigger="loop"
+                     colors="primary:#ffffff,secondary:#eeca66"
+                     style="width:80px;height:80px">
+          </lord-icon>
+          <p class="mt-5 text-lg leading-6 font-medium text-white">Transfers are instant</p>
+        </dt>
+        <dd class="mt-2 text-base text-gray-400">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis
+          suscipit eaque, iste dolor cupiditate blanditiis ratione.</dd>
+      </div>
+    </dl>
+  </div>
+</div> #}}
+
+
+  <div class="py-12 bg-neutral-900">
+    <div class="max-w-7xl mx-auto px-8 items-center my-12 grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-8 items-center">
+      <div class="col-span-1">
+        <img src="/img/vision.jpeg"
+             alt="">
+      </div>
+      <div class="col-span-2 py-12 font-light text-left text-lg leading-relaxed ">
+        <h1 class="text-5xl font-light font-Noto tracking-wider uppercase mb-8">Naša vizija</h1>
+        <q class="text-banana-500 text-2xl"> V vsak prostor želimo pripeljati toplino doma. </q><br>
+        <p class="py-4">
+          Prizadevamo si, da smo prava izbira za kvalitetno, po meri izdelanega pohištva. Doseči in preseči želimo pričakovanja naših
+          kupcev.
+          Z našim znanjem, izkušnjami in tehnologijo se trudimo biti kos vsem izzivom. Ob vsem tem pa si z izbiro trajnostnih materialov in
+          procesov prizadevamo za skrb za okolje.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="py-12 bg-neutral-800">
+    <div class="max-w-7xl mx-auto px-8 items-center my-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+
+      <div class="col-span-2 py-12 font-light text-left text-lg leading-relaxed ">
+        <h1 class="text-5xl font-light font-Noto tracking-wider uppercase mb-8">Sodelovanje z mladimi</h1>
+        Vsako leto sodelujemo s Šolskim centrom Novo mesto. Dijakinjam in dijakom dajemo možnosti, da pri nas dobijo prve delovne izkušnje.
+        Trudimo se prispevati k vzgoji in izobraževanju dobrih mizarjev, zato najbolj obetavnim zagotavljamo štipendije.
+      </div>
+    </div>
+  </div>

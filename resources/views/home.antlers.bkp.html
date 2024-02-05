@@ -1,0 +1,155 @@
+<div class="swiper mySwiper h-auto font-heading mb-12 md:mb-0">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide w-full mx-auto">
+      <div class="h-[20rem] md:h-[40rem] max-h-screen text-white px-12 object-cover bg-center bg-cover"
+           style="background-image: url(/img/slide_01.jpg)">
+           {{# <div class="absolute w-full h-[20rem] md:h-[40rem]" style="background-image: url(/img/gradient.png); background-position:center; background-repeat:no-repeat">
+           </div> #}}
+           <div class="absolute inset-0 flex items-center justify-center">
+        <img class="mx-auto h-20 w-3/4 md:w-1/2 "
+             src="/img/ideas.svg"
+             alt="Ideas to life">
+            </div>
+      </div>
+    </div>
+    <div class="swiper-slide w-full mx-auto">
+      <div class="h-[20rem] md:h-[40rem] max-h-screen text-white py-24 px-12 object-cover bg-center bg-cover"
+           style="background-image: url(/img/slide_02.jpg)">
+           {{# <div class="absolute w-full h-[20rem] md:h-[40rem]" style="background-image: url(/img/gradient.png); background-position:center; background-repeat:no-repeat">
+           </div> #}}
+           <div class="absolute inset-0 flex items-center justify-center">
+        <img class="mx-auto h-20 w-3/4 md:w-1/2"
+             src="/img/details.svg"
+             alt="Details matter">
+            </div>
+      </div>
+    </div>
+    <div class="swiper-slide w-full mx-auto">
+      <div class="h-[20rem] md:h-[40rem] max-h-screen text-white py-24 px-12 object-cover bg-center bg-cover"
+           style="background-image: url(/img/slide1.jpg)">
+           {{# <div class="absolute w-full h-[20rem] md:h-[40rem]" style="background-image: url(/img/gradient.png); background-position:center; background-repeat:no-repeat">
+           </div> #}}
+           <div class="absolute inset-0 flex items-center justify-center">
+        <img class="mx-auto h-20 w-3/4 md:w-1/2"
+             src="/img/quality.svg"
+             alt="Quality as mission">
+            </div>
+      </div>
+    </div>
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <!-- <div class="swiper-pagination"></div> -->
+</div>
+
+
+<div id="content" class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 items-center md:p-12">
+  <div class="col-span-1 hidden md:flex">
+    {{ locales id="5ea12e08-23c5-4691-90c4-667dfaddbcb8" current_first="true" }}
+        {{ if first }}
+            {{ responsive:main_photo ratio="16/9" }}
+        {{ /if }}
+    {{ /locales }}
+
+  </div>
+  <div class="col-span-1 text-base md:pl-12 leading-8">
+        {{ locales id="5ea12e08-23c5-4691-90c4-667dfaddbcb8" current_first="true" }}
+            {{ if first }}
+            <h2 class="">{{title}}</h2>
+            {{ content }}
+            <a href="{{url}}"
+            class="more">
+            {{more | strip_tags:p}} <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            {{ /if }}
+        {{ /locales }}
+  </div>
+</div>
+
+<div id="content" class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 items-center p-4 md:p-12">
+  <div class="col-span-1 text-base md:pr-12 order-2 md:order-1 leading-8">
+        {{ locales id="70cb297d-ccb6-4255-ae75-0998f33d2bb5" current_first="true" }}
+        {{ if first }}
+        <h2>{{title}}</h2>
+        {{ content }}
+        <a href="{{url}}"
+        class="more">
+        {{more | strip_tags:p}} <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        {{ /if }}
+    {{ /locales }}
+  </div>
+  <div class="col-span-1 order-1 md:order-2  mb-12 md:mb-0">
+    {{ locales id="70cb297d-ccb6-4255-ae75-0998f33d2bb5" current_first="true" }}
+        {{ if first }}
+       {{responsive:main_photo ratio="16/9"}}
+           {{ /if }}
+          {{ /locales }}
+  </div>
+</div>
+<div id="content" class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 items-center p-4 md:p-12">
+    <div class="col-span-1  mb-12 md:mb-0">
+        {{ locales id="c4b2a27f-3dc6-45c2-8d82-348c66db056f" current_first="true" }}
+        {{ if first }}
+       {{responsive:main_photo ratio="16/9"}}
+           {{ /if }}
+          {{ /locales }}
+    </div>
+    <div class="col-span-1 text-base md:pl-12 leading-8">
+          {{ locales id="c4b2a27f-3dc6-45c2-8d82-348c66db056f" current_first="true" }}
+              {{ if first }}
+              <h2>{{title}}</h2>
+              {{ content }}
+              <a href="{{url}}"
+              class="more">
+              {{more | strip_tags:p}} <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              {{ /if }}
+          {{ /locales }}
+    </div>
+  </div>
+{{# <div class="video-wrapper py-24 group">
+  <video playsinline
+         autoplay
+         muted
+         loop
+         poster="cake.jpg"
+         class="opacity-40 group-hover:opacity-70 transition-opacity duration-500">
+    <source src="/img/Wood.mp4"
+            type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="video-text px-4">
+    <img src="/img/KAKO_nam_uspe_{{site:short_locale}}.svg" class="h-20" alt="">
+    <a href="/tehnologija"
+    class="block mx-auto text-banana-500 text-base font-Open font-thin  hover:text-white transition-colors duration-300 ">
+    {{trans:trans.tehnologija}} <i class="fa-solid fa-arrow-right"></i></a>
+  </div> #}}
+</div>
+
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+
+    init: true,
+    slidesPerView: '1',
+    spaceBetween: 0,
+    autoplay: {
+        delay: 5000,
+    },
+    speed: 1000,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>

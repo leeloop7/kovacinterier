@@ -1,0 +1,200 @@
+  <div id="contact">
+    <h2>{{trans:trans.kontaktirajte}}</h2>
+    {{# <p class="mt-6 text-lg text-gray-300 max-w-3xl">Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non.
+      Cras aliquet purus dui laoreet diam sed lacus, fames.</p> #}}
+      <div class="my-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div>
+          <h3>Kovač Group d.o.o.</h3>
+          <p class="mt-2 text-base text-gray-300">
+            <a href="tel:+386 40 650 805"
+               class="block hover:text-banana-500">{{ if site:url != '/' }}+386 (0)7 393 27 00
+              {{else}}07 393 27 00{{/if}}</a>
+            <a href="mailto:branko@kovacinterier.com"
+               class="block hover:text-banana-500">info@kovacinterier.com</a>
+            <a href=""
+               class="block hover:text-banana-500">Vavpotičeva ulica 10<br>8000 Novo mesto</a>
+            <a href=""
+               class="block hover:text-banana-500">{{trans:trans.slovenija}}</a>
+          </p>
+        </div>
+        <div>
+          <h3>Branko Kovač, {{trans:trans.ceo}}</h3>
+          <p class="mt-2 text-base text-gray-300">
+            <a href="tel:+386 40 650 805"
+               class="block hover:text-banana-500">{{ if site:url != '/' }}+386 40 650 805
+              {{else}}040 650 805{{/if}}</a>
+            <a href="mailto:branko@kovacinterier.com"
+               class="block hover:text-banana-500">branko@kovacinterier.com</a>
+          </p>
+        </div>
+        <div>
+          <h3>Miran Kovač, {{trans:trans.ceo}}</h3>
+          <p class="mt-2 text-base text-gray-300">
+            <a href="tel:+386 40 850 805"
+               class="block hover:text-banana-500">{{ if site:url != '/' }}+386 40 850 805
+              {{else}}040 850 805{{/if}}</a>
+            <a href="mailto:miran@kovacinterier.com"
+               class="block hover:text-banana-500">miran@kovacinterier.com</a>
+          </p>
+        </div>
+      </div>
+      <hr class="mt-8">
+      <div class="mt-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div>
+          <h3>Kovac Interiors GmbH</h3>
+          <p class="mt-2 text-base text-gray-300">
+            <a href=""
+               class="block hover:text-banana-500">Talstraße 14 (BED Businesspark)<br>89584 Ehingen (Donau)</a>
+            <a href=""
+               class="block hover:text-banana-500">{{trans:trans.nemčija}}</a>
+          </p>
+        </div>
+        <div>
+          <h3>Simon Knez</h3>
+          <p class="mt-2 text-base text-gray-300">
+            <a href="tel:+49 172 2108737"
+               class="block hover:text-banana-500">+49 172 2108737</a>
+            <a href="mailto:simon@kovacinterier.com"
+               class="block hover:text-banana-500">simon@kovacinterier.com</a>
+          </p>
+        </div>
+      </div>
+  </div>
+<div class="relative bg-neutral-800">
+  <div class="lg:absolute lg:inset-0">
+    <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 z-10"
+         id="map">
+    </div>
+  </div>
+  <div class="relative py-6 sm:py-12 px-4 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:py-16 lg:grid lg:grid-cols-2">
+    <div class="lg:pr-8">
+      <div class="max-w-md mx-auto sm:max-w-lg lg:mx-0">
+        {{ if {session:has key="errors"} }}
+        <p class="p-4 bg-red-100 text-red-800 rounded shadow-sm mb-5 text-sm">Nekaj je šlo narobe. Prosimo poizkusite ponovno.</p>
+        {{ /if }}
+        {{ if {session:has key="success"} }}
+        <p class="py-4 text-banana-500 rounded shadow-sm mb-5 text-md">Hvala za kontakt. Odgovorimo Vam v najkrajšem možnem času.</p>
+        {{ /if }}
+        <h2 class="text-2xl md:text-3xl font-light font-Noto tracking-wider uppercase mb-8">{{trans:trans.pišite}}</h2>
+        <p class="mt-4 text-base text-gray-300 sm:mt-3">{{trans:trans.pišite_text}}</p>
+        <form action="/contact"
+              method="POST"
+              class="mt-9 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+          {{ csrf_field }}
+          <div>
+            <label for="first-name"
+                   class="block text-sm font-medium text-gray-300">{{trans:trans.ime}} *</label>
+            <div class="mt-1">
+              <input type="text"
+                     required
+                     name="first-name"
+                     id="first-name"
+                     autocomplete="given-name"
+                     value="{{ old:first-name }}"
+                     class="block w-full bg-transparent shadow-sm sm:text-sm focus:ring-banana-500 focus:border-banana-500 border-gray-600 rounded-md">
+            </div>
+          </div>
+          <div>
+            <label for="last-name"
+                   class="block text-sm font-medium text-gray-300">{{trans:trans.priimek}} *</label>
+            <div class="mt-1">
+              <input type="text"
+                     name="last-name"
+                     required
+                     id="last-name"
+                     autocomplete="family-name"
+                     value="{{ old:last-name }}"
+                     class="block w-full bg-transparent shadow-sm sm:text-sm focus:ring-banana-500 focus:border-banana-500 border-gray-600 rounded-md">
+            </div>
+          </div>
+          <div class="sm:col-span-2">
+            <label for="email"
+                   class="block text-sm font-medium text-gray-300">Email *</label>
+            <div class="mt-1">
+              <input id="email"
+                     name="email"
+                     required
+                     type="email"
+                     autocomplete="email"
+                     value="{{ old:email }}"
+                     class="block w-full bg-transparent shadow-sm sm:text-sm focus:ring-banana-500 focus:border-banana-500 border-gray-600 rounded-md">
+            </div>
+          </div>
+          <div class="sm:col-span-2">
+            <label for="company"
+                   class="block text-sm font-medium text-gray-300">{{trans:trans.podjetje}}</label>
+            <div class="mt-1">
+              <input type="text"
+                     name="company"
+                     id="company"
+                     autocomplete="organization"
+                     value="{{ old:company }}"
+                     class="block w-full bg-transparent shadow-sm sm:text-sm focus:ring-banana-500 focus:border-banana-500 border-gray-600 rounded-md">
+            </div>
+          </div>
+          <div class="sm:col-span-2">
+            <div class="flex justify-between">
+              <label for="phone"
+                     class="block text-sm font-medium text-gray-300">{{trans:trans.telefon}}</label>
+
+            </div>
+            <div class="mt-1">
+              <input type="text"
+                     name="phone"
+                     id="phone"
+                     autocomplete="tel"
+                     aria-describedby="phone-description"
+                     value="{{ old:phone }}"
+                     class="block w-full bg-transparent shadow-sm sm:text-sm focus:ring-banana-500 focus:border-banana-500 border-gray-600 rounded-md">
+            </div>
+          </div>
+          <div class="sm:col-span-2">
+            <div class="flex justify-between">
+              <label for="how-can-we-help"
+                     class="block text-sm font-medium text-gray-300">{{trans:trans.kako}} *</label>
+              <span id="how-can-we-help-description"
+                    class="text-sm text-gray-300">{{trans:trans.max}}</span>
+            </div>
+            <div class="mt-1">
+              <textarea id="how-can-we-help"
+                        name="how-can-we-help"
+                        required
+                        aria-describedby="how-can-we-help-description"
+                        rows="4"
+                        value="{{ old:how-can-we-help }}"
+                        class="block w-full bg-transparent shadow-sm sm:text-sm focus:ring-banana-500 focus:border-banana-500 border border-gray-600 rounded-md"></textarea>
+            </div>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label for="how-did-you-hear-about-us"
+                   class="block text-sm font-medium text-gray-300">{{trans:trans.prišli}} *</label>
+            <div class="mt-1">
+              <select type="text"
+                      name="how-did-you-hear-about-us"
+                      id="how-did-you-hear-about-us"
+                      required
+                      value="{{ old:how-did-you-hear-about-us }}"
+                      class="shadow-sm bg-neutral-800 focus:ring-banana-500 focus:border-banana-500 block w-full sm:text-sm border-gray-600 rounded-md">
+                <option disabled
+                        selected
+                        value> -- {{trans:trans.izberite}} -- </option>
+                <option value="Priporočilo">{{trans:trans.priporočilo}}</option>
+                <option value="Internetno iskanje">{{trans:trans.search}}</option>
+                <option value="Socialna omrežja">{{trans:trans.social}}</option>
+                <option value="Oglaševanje">{{trans:trans.oglaševanje}}</option>
+                <option value="Drugo">{{trans:trans.drugo}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="text-right sm:col-span-2">
+            <button type="submit"
+                    class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-gray-900 bg-banana-500 hover:bg-banana-500 hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-banana-500">
+              {{trans:trans.pošlji}}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,3 +2,7 @@ name: Leon
 super: true
 id: e428b9e7-aedd-47ee-9cbd-b3b98d630e6c
 password_hash: $2y$10$35i6VsFXh2oFatBhl5a4S.wCjRYPcOipvz.pn1SuY4eYM4w1pXDNK
+preferences:
+  collections:
+    pages:
+      after_save: continue_editing
