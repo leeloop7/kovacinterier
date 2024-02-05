@@ -16,3 +16,6 @@ yarn-error.log
 .DS_Store
 /.idea
 /.vscode
+/public/css/tailwind.css
+/public/js/site.js
+/public/mix-manifest.json
